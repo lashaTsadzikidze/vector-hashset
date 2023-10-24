@@ -49,9 +49,9 @@ void VectorReplace(vector *v, const void *elemAddr, int position) {
 // This function added by me
 void growVectorElemsContainer (vector *v) {
     if (v->logical_length == v->memory_length) {
-        v->elems_container = realloc(v->elems_container, v->elem_size_bytes * (v->memory_length + 20));
+        v->elems_container = realloc(v->elems_container, v->elem_size_bytes * (v->memory_length * 2));
         assert(v->elems_container != NULL);
-        v->memory_length += 20;
+        v->memory_length *= 2;
     } else return;
 }
 
